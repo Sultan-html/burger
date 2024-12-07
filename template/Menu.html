@@ -1,0 +1,95 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- header-start -->
+    {% include 'include/header.html' %}
+    <!-- header-end -->
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay">
+        <h3>Menu</h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <!-- best_burgers_area_start -->
+    <div class="best_burgers_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title text-center mb-80">
+                        <span>Burger Menu</span>
+                        <h3>Best Ever Burgers</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for burgers in burger %}
+                    <div class="col-xl-6 col-md-6 col-lg-6">
+                        <div class="single_delicious d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="{{ burgers.image.url }}" alt="{{ burger.title }}" width="155">
+                            </div>
+                            <div class="info">
+                                <h3>{{ burgers.title }}</h3>
+                                <p>{{ burgers.description }}</p>
+                                <span>${{ burgers.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- best_burgers_area_end -->
+
+    <!-- testimonial_area_start -->
+    <div class="testimonial_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-60 text-center">
+                        <span>Testimonials</span>
+                        <h3>Happy Customers</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="single_testmonial text-center">
+                                        <p>“"Complete the improvement of coordinated harmony. Complete the groove of proactive initiatives. Adhere to the moment of awareness and proper management of dimensions.".</p>
+                                        <div class="testmonial_author">
+                                            <div class="thumb">
+                                                <img src="{% static 'img/testmonial/1.png' %}" alt="">
+                                            </div>
+                                            <h4>Kristiana Chouhan</h4>
+                                            <div class="stars">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More testimonials can be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial_area_end -->
+
+    <!-- footer_start -->
+    {% include 'include/footer.html' %}
+{% endblock %}

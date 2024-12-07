@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Review</title>
+    <style>
+        /* Основные цвета */
+        :root {
+            --primary-color: #FF6F00;  /* Оранжевый */
+            --secondary-color: #1D1D1D; /* Черный */
+            --accent-color: #FF9F00;    /* Светло-оранжевый */
+            --light-gray: #f4f4f4;
+            --white-color: #FFFFFF;
+            --border-radius: 8px;
+        }
+
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #FF6F00, #FF9F00);
+        }
+
+        /* Контейнер формы */
+        .review-container {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .review-container:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Заголовок формы */
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Стили для полей формы */
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            outline: none;
+            background-color: #F9F9F9;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            background-color: #fff;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--secondary-color);
+            opacity: 0.6;
+        }
+
+        /* Стили для кнопки отправки */
+        .submit-btn {
+            padding: 15px 25px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* Текст под формой */
+        .newsletter-text {
+            text-align: center;
+            font-size: 16px;
+            color: var(--secondary-color);
+            margin-top: 15px;
+        }
+
+        /* Анимации для формы */
+        .form-group {
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <h1 class="title">Submit Your Review</h1>
+
+        <form method="POST" action="{% url 'submit_review' %}" class="review-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="submit-btn">Submit Review</button>
+        </form>
+
+        <p class="newsletter-text">Stay connected with us to get exclusive offers!</p>
+    </div>
+</body>
+</html>
