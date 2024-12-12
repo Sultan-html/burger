@@ -20,7 +20,10 @@ def contact(request):
     return render(request, 'contact.html', locals())
 bot = telebot.TeleBot(settings.TELEGRAM_BOT_API_TOKEN)
 ADMIN_CHAT_ID = settings.ADMIN_CHAT_ID
-
+def single_blog(request):
+    return render(request, 'single-blog.html', locals())
+def elements(request):
+    return render(request, 'elements.html', locals())
 def submit_review(request):
     if request.method == "POST":
         name = request.POST.get("name")

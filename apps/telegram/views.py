@@ -14,7 +14,7 @@ def submit_review(request):
         if form.is_valid():
             review = form.save()  # Сохраняем отзыв в базе данных
             # Отправляем отзыв в Telegram
-            bot.send_message(ADMIN_CHAT_ID, f"Новый отзыв\n имя: {review.name}\n почта: ({review.email})\n сообщение: {review.message}")
+            bot.send_message(ADMIN_CHAT_ID, f"Новый отзыв\n имя: {review.name}\n почта: {review.email}\n сообщение: {review.message}")
             return HttpResponse("Thank you for your review!")
     else:
         form = ReviewForm()
