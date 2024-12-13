@@ -30,14 +30,24 @@
                 <div class="col-xl-4 col-md-12 col-lg-4">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            write a review about our establishment
+                            Write a review about our establishment
                         </h3>
                         <form method="POST" action="{% url 'submit_review' %}">
                             {% csrf_token %}
                             {{ form.as_p }} <!-- Выводим форму на основе формы Django -->
-                            <button type="submit">Submit Review</button>
+                            <button type="submit" style="
+                                background-color: orange; 
+                                color: white; 
+                                border: none; 
+                                border-radius: 5px; 
+                                padding: 10px 20px; 
+                                font-size: 16px; 
+                                cursor: pointer; 
+                                transition: all 0.3s ease;">
+                                Submit Review
+                            </button>
                         </form>
-
+                
                         <p class="newsletter_text">Stay connect with us to get exclusive offer!</p>
                     </div>
                 </div>

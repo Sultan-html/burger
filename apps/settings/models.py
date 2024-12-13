@@ -59,3 +59,16 @@ class SocialMedia(models.Model):
 
     def __str__(self):
         return f"Ссылки на соцсети"
+
+class BurgerMenuDetail(models.Model):
+    image = models.ImageField(upload_to='image/')
+    title = models.CharField(max_length=60,verbose_name='Заголовок')
+    description = models.TextField(verbose_name='Описание')
+    price = models.IntegerField(verbose_name='Цена')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Бургер детали'
+        verbose_name_plural = 'Бургеры детали'
