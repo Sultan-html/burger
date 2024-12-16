@@ -14,4 +14,4 @@ class BurgerBigMenuAdmin(admin.ModelAdmin):
 class BurgerMenuDetailAdmin(admin.ModelAdmin):
     list_display = ('title','description','price')
     search_fields = ['title','description','price']
-    list_filter = ('title','description','price')
+    list_filter = ('title','description')
