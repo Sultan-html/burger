@@ -24,6 +24,8 @@ def single_blog(request):
     return render(request, 'single-blog.html', locals())
 def elements(request):
     return render(request, 'elements.html', locals())
+def you(request):
+    return render(request, 'you.html', locals())
 def submit_review(request):
     if request.method == "POST":
         name = request.POST.get("name")
